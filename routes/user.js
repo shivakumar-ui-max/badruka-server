@@ -10,7 +10,7 @@ route.post("/user", async (req, res) => {
       const personOneName = await User.findOne({ personOneRollNumber });
       const personTwoName = await User.findOne({ personTwoRollNumber });
 
-      if (!personOneName || !personTwoName) {
+      if (!personOneName && !personTwoName) {
          res.status(404).json({
             noError: "not matched",
          });
